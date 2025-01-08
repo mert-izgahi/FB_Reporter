@@ -43,3 +43,12 @@ def register_proxy(driver, proxy):
     )
 
     return driver
+
+
+def load_accounts_list(file_path):
+    accounts = []
+    with open(file_path, "r") as f:
+        for line in f:
+            username, password = line.strip().split(":")
+            accounts.append((username, password))
+    return accounts

@@ -1,13 +1,14 @@
 ﻿from reporter import reporter
-from reporter.utils import load_proxies_list
+from reporter.utils import load_proxies_list,load_accounts_list
 import random
 
 TARGET_PAGE = "https://www.facebook.com/profile.php?id=61567627802700&sk=reels_tab"
-USERNAME = "mertizgahi900@gmail.com"
-PASSWORD = "Yusuf17Aslan24@"
+
+proxies = load_proxies_list("./configs/proxies.txt")
+accounts = load_accounts_list("./configs/accounts.txt")
 
 
-proxies = load_proxies_list("proxies.txt")
+USERNAME, PASSWORD = random.choice(accounts)
 random_proxy = random.choice(proxies)
 
 client = reporter.FB_Reporter(
